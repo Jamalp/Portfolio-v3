@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
-import Navigation from "./Navigation";
+import Navigation from "./navigation";
 import Initials from "./initials";
 import Transition from "./transition";
 import "../styles/base.scss";
