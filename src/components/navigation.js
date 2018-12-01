@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import { vars } from "../utils/emotionVars";
-import Circle from "./Circle";
+import Circle from "./circle";
 import { TweenMax, Expo, TimelineLite } from "gsap";
 
 const Header = styled("header")`
