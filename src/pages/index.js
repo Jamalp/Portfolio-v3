@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import { TweenMax, Power2, Expo } from "gsap";
+import backgroundImage from "../images/home-background.jpg";
 
 const Introduction = styled("div")`
   height: 100vh;
@@ -12,11 +13,16 @@ const Introduction = styled("div")`
   opacity: 0;
   width: calc(100% - 240px);
   margin: 0 auto;
+  position: relative;
   @media (max-width: 950px) {
     padding-left: 30px;
     padding-right: 30px;
     height: 100vh;
     width: 100%;
+  }
+  & > div:first-of-type {
+    z-index: 3;
+    position: relative;
   }
   p {
     width: 70%;
@@ -24,7 +30,7 @@ const Introduction = styled("div")`
     font-size: 36px;
     font-weight: 400;
     line-height: 42px;
-    &:first-child {
+    &:first-of-type {
       margin-bottom: 43px;
       @media (max-width: 950px) {
         margin-bottom: 20px;
@@ -37,6 +43,7 @@ const Introduction = styled("div")`
   }
   .cta-wrapper {
     margin-top: 40px;
+    z-index: 2;
     @media (max-width: 950px) {
       font-size: 24px;
       margin-top: 20px;
@@ -44,7 +51,57 @@ const Introduction = styled("div")`
   }
 `;
 
+const BackgroundImage = styled("div")`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(1, 0.01, 0.7, 0.93);
+  &.home-link-hover {
+    opacity: 1;
+  }
+  .background-image-wrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    .background-image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+`;
+
 class HomePage extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isHovered: false
+    };
+    this.handleHover = this.handleHover.bind(this);
+  }
+
+  handleHover() {
+    console.log("hi");
+    this.setState({ isHovered: !this.state.isHovered });
+  }
+
   componentDidMount() {
     TweenMax.to("#introduction_copy", 1.4, {
       opacity: 1,
@@ -53,6 +110,7 @@ class HomePage extends React.Component {
   }
 
   render() {
+    const hoverClass = this.state.isHovered ? "home-link-hover" : "";
     return (
       <>
         <Introduction id="introduction_copy">
@@ -69,11 +127,22 @@ class HomePage extends React.Component {
             </p>
           </div>
           <div className="cta-wrapper">
-            <Link to="/work" className="link--primary">
+            <Link
+              to="/work"
+              className="link--primary"
+              onMouseEnter={this.handleHover}
+              onMouseLeave={this.handleHover}
+            >
               View My Work
             </Link>
           </div>
         </Introduction>
+        <BackgroundImage className={`${hoverClass} background-image-hover`}>
+          <div className="background-image-wrapper">
+            <img src={backgroundImage} alt="Visit my work page" />
+            <div className="background-image-overlay" />
+          </div>
+        </BackgroundImage>
       </>
     );
   }

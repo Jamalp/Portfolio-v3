@@ -38,6 +38,7 @@ const ProjectEl = styled("div")`
     }
     & > a {
       width: 48.6%;
+      display: block;
       @media (max-width: 950px) {
         width: 100%;
         margin: 0 auto 20px;
