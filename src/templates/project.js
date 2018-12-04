@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
+import styled from "@emotion/styled";
 
 class Project extends Component {
   render() {
@@ -45,7 +46,12 @@ export const pageQuery = graphql`
           excerpt
         }
       }
-      copyRowRight
+      copyRowRight {
+        childMarkdownRemark {
+          html
+          excerpt
+        }
+      }
       pageTour {
         file {
           url

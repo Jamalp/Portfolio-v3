@@ -8,7 +8,7 @@ const InitialsEl = styled("h4")`
   font-size: 24px;
   font-weight: 700;
   text-align: center;
-  z-index: 1;
+  z-index: 100;
   cursor: pointer;
   @media (max-width: 1024px) {
     display: none;
