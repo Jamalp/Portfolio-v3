@@ -1,7 +1,8 @@
-import { vars } from "../../utils/emotionVars";
 import React, { Component } from "react";
+import { Link, graphql } from "gatsby";
+import { vars } from "../../utils/emotionVars";
 import styled from "@emotion/styled";
-import Link from "next/link";
+import Img from "gatsby-image";
 
 const FooterEl = styled("footer")`
   display: flex;
@@ -24,6 +25,7 @@ const FooterEl = styled("footer")`
     display: block;
     width: 77.25%;
     position: relative;
+    cursor: pointer;
     @media (max-width: 950px) {
       width: 100%;
       height: 200px;
@@ -39,6 +41,9 @@ const FooterEl = styled("footer")`
       p:after {
         transform: translate3d(0, 0, 0);
       }
+    }
+    .gatsby-image-wrapper {
+      height: 100%;
     }
     .overlay {
       position: absolute;
@@ -140,25 +145,22 @@ const FooterLine = styled("div")`
   }
 `;
 
-class Footer extends React.Component {
-  constructor() {
-    super();
-  }
-
+class Footer extends Component {
   render() {
     if (this.props.data) {
       return (
         <FooterEl>
           <FooterLine />
-          {/* <Link href={`/project?slug=${this.props.data[0].post_name}&apiRoute=page`} as={`/work/${this.props.data[0].post_name}`} prefetch> */}
-          <a href={`/work/${this.props.data[0].post_name}`}>
+          <Link to={`/work/${this.props.data.slug}`}>
             <div className="title-wrapper">
-              <p>{this.props.data[0].post_title}</p>
+              <p>{this.props.data.projectTitle}</p>
             </div>
             <div className="overlay" />
-            <img src={this.props.data[1].guid} />
-          </a>
-          {/* </Link> */}
+            <Img
+              fluid={this.props.data.footerImage.fluid}
+              key={this.props.data.id}
+            />
+          </Link>
           <div className="footer-contact">
             <div>
               <p>Lets work together.</p>

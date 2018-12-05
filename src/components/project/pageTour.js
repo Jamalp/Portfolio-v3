@@ -55,10 +55,6 @@ const PageTourElement = styled("div")`
 `;
 
 class PageTour extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     if (this.props.data.pageTour) {
       let sidebarContent = null;

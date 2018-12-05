@@ -9,7 +9,9 @@ import CopyRow from "../components/project/copyRow";
 import PageTour from "../components/project/pageTour";
 import ImageRow from "../components/project/imageRow";
 import Quote from "../components/project/quote";
-
+import Carousel from "../components/project/carousel";
+import MobileImages from "../components/project/mobileImages";
+import Footer from "../components/project/footer";
 const ProjectPage = styled("section")`
   @media (max-width: 950px) {
     padding-top: ${vars.header_height};
@@ -62,7 +64,11 @@ class Project extends Component {
       imageRowTallLeft,
       imageRow,
       quote,
-      quoteAuthor
+      quoteAuthor,
+      gallery,
+      galleryCopy,
+      mobileImages,
+      nextProject
     } = this.props.data.contentfulProject;
 
     return (
@@ -92,18 +98,11 @@ class Project extends Component {
               rightImage: imageRow[1]
             }}
           />
-          <PageTour
-            data={{
-              pageTour,
-              pageTourDescriptions
-            }}
-          />
-          <Quote
-            data={{
-              quote,
-              quoteAuthor
-            }}
-          />
+          <PageTour data={{ pageTour, pageTourDescriptions }} />
+          <Quote data={{ quote, quoteAuthor }} />
+          <Carousel data={{ gallery, galleryCopy }} />
+          <MobileImages data={mobileImages} />
+          <Footer data={nextProject} />
         </ProjectPage>
       </div>
     );
@@ -121,7 +120,6 @@ export const pageQuery = graphql`
     contentfulProject(slug: { eq: $slug }) {
       id
       projectTitle
-      order
       slug
       heroImage {
         fluid(maxWidth: 1800, quality: 100) {
@@ -157,13 +155,45 @@ export const pageQuery = graphql`
         fluid(quality: 100) {
           ...GatsbyContentfulFluid_withWebp_noBase64
         }
-        file {
-          url
-        }
       }
       pageTourDescriptions
       quote
       quoteAuthor
+      gallery {
+        id
+        fluid(quality: 100) {
+          src
+          ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+        file {
+          url
+          contentType
+        }
+      }
+      galleryCopy {
+        childMarkdownRemark {
+          html
+        }
+      }
+      mobileImages {
+        id
+        file {
+          fileName
+        }
+        fluid(quality: 100) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+      }
+      nextProject {
+        id
+        projectTitle
+        slug
+        footerImage {
+          fluid(quality: 100, maxWidth: 1600) {
+            ...GatsbyContentfulFluid_withWebp_noBase64
+          }
+        }
+      }
     }
   }
 `;

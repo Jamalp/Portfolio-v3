@@ -33,10 +33,6 @@ const ImageRow = styled("div")`
 `;
 
 class ImageSideBySide extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     if (this.props.data) {
       let imageRight = null;

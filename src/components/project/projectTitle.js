@@ -58,7 +58,7 @@ class ProjectTitle extends Component {
 
   handleTitle() {
     const { title } = this.props;
-    if (title.trim().indexOf(" ") != -1) {
+    if (title.trim().indexOf(" ") !== -1) {
       const str1 = title.substr(0, title.indexOf(" "));
       const str2 = title.substr(title.indexOf(" ") + 1);
       this.createNewLine(str1, str2);

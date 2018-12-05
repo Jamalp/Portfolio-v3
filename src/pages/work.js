@@ -154,113 +154,120 @@ const WorkPage = ({ data }) => (
         </Link>
       </ProjectEl>
       <ProjectEl className="project-row project-row-2">
-        <Link to={`/work/${data.allContentfulProject.edges[1].node.slug}`}>
-          <a className="project-link">
-            <div className="project-hover">
-              <h3 className="project-name">
-                {data.allContentfulProject.edges[1].node.projectTitle}
-              </h3>
-            </div>
-            <Img
-              fluid={data.allContentfulProject.edges[1].node.gridImage.fluid}
-              alt={data.allContentfulProject.edges[1].node.projectTitle}
-              key={data.allContentfulProject.edges[1].node.gridImage.id}
-            />
-          </a>
+        <Link
+          className="project-link"
+          to={`/work/${data.allContentfulProject.edges[1].node.slug}`}
+        >
+          <div className="project-hover">
+            <h3 className="project-name">
+              {data.allContentfulProject.edges[1].node.projectTitle}
+            </h3>
+          </div>
+          <Img
+            fluid={data.allContentfulProject.edges[1].node.gridImage.fluid}
+            alt={data.allContentfulProject.edges[1].node.projectTitle}
+            key={data.allContentfulProject.edges[1].node.gridImage.id}
+          />
         </Link>
-        <Link to={`/work/${data.allContentfulProject.edges[2].node.slug}`}>
-          <a className="project-link">
-            <div className="project-hover">
-              <h3 className="project-name">
-                {data.allContentfulProject.edges[2].node.projectTitle}
-              </h3>
-            </div>
-            <div className="cover-image">
-              <Img
-                fluid={data.allContentfulProject.edges[2].node.gridImage.fluid}
-                alt={data.allContentfulProject.edges[2].node.projectTitle}
-                key={data.allContentfulProject.edges[2].node.gridImage.id}
-              />
-            </div>
-          </a>
+        <Link
+          className="project-link"
+          to={`/work/${data.allContentfulProject.edges[2].node.slug}`}
+        >
+          <div className="project-hover">
+            <h3 className="project-name">
+              {data.allContentfulProject.edges[2].node.projectTitle}
+            </h3>
+          </div>
+          <div className="cover-image">
+            <Img
+              fluid={data.allContentfulProject.edges[2].node.gridImage.fluid}
+              alt={data.allContentfulProject.edges[2].node.projectTitle}
+              key={data.allContentfulProject.edges[2].node.gridImage.id}
+            />
+          </div>
         </Link>
       </ProjectEl>
       <ProjectEl className="project-single project-row-3">
-        <Link to={`/work/${data.allContentfulProject.edges[3].node.slug}`}>
-          <a className="project-link">
-            <div className="project-hover">
-              <h3 className="project-name">
-                {data.allContentfulProject.edges[3].node.projectTitle}
-              </h3>
-            </div>
-            <Img
-              fluid={data.allContentfulProject.edges[3].node.gridImage.fluid}
-              alt={data.allContentfulProject.edges[3].node.projectTitle}
-              key={data.allContentfulProject.edges[3].node.gridImage.id}
-            />
-          </a>
+        <Link
+          className="project-link"
+          to={`/work/${data.allContentfulProject.edges[3].node.slug}`}
+        >
+          <div className="project-hover">
+            <h3 className="project-name">
+              {data.allContentfulProject.edges[3].node.projectTitle}
+            </h3>
+          </div>
+          <Img
+            fluid={data.allContentfulProject.edges[3].node.gridImage.fluid}
+            alt={data.allContentfulProject.edges[3].node.projectTitle}
+            key={data.allContentfulProject.edges[3].node.gridImage.id}
+          />
         </Link>
       </ProjectEl>
       <ProjectEl className="project-row project-row-4">
-        <Link to={`/work/${data.allContentfulProject.edges[4].node.slug}`}>
-          <a className="project-link">
-            <div className="project-hover">
-              <h3 className="project-name">
-                {data.allContentfulProject.edges[4].node.projectTitle}
-              </h3>
-            </div>
-            <Img
-              fluid={data.allContentfulProject.edges[4].node.gridImage.fluid}
-              alt={data.allContentfulProject.edges[4].node.projectTitle}
-              key={data.allContentfulProject.edges[4].node.gridImage.id}
-            />
-          </a>
+        <Link
+          className="project-link"
+          to={`/work/${data.allContentfulProject.edges[4].node.slug}`}
+        >
+          <div className="project-hover">
+            <h3 className="project-name">
+              {data.allContentfulProject.edges[4].node.projectTitle}
+            </h3>
+          </div>
+          <Img
+            fluid={data.allContentfulProject.edges[4].node.gridImage.fluid}
+            alt={data.allContentfulProject.edges[4].node.projectTitle}
+            key={data.allContentfulProject.edges[4].node.gridImage.id}
+          />
         </Link>
-        <Link to={`/work/${data.allContentfulProject.edges[5].node.slug}`}>
-          <a className="project-link">
-            <div className="project-hover">
-              <h3 className="project-name">
-                {data.allContentfulProject.edges[5].node.projectTitle}
-              </h3>
-            </div>
-            <Img
-              fluid={data.allContentfulProject.edges[5].node.gridImage.fluid}
-              alt={data.allContentfulProject.edges[5].node.projectTitle}
-              key={data.allContentfulProject.edges[5].node.gridImage.id}
-            />
-          </a>
+        <Link
+          className="project-link"
+          to={`/work/${data.allContentfulProject.edges[5].node.slug}`}
+        >
+          <div className="project-hover">
+            <h3 className="project-name">
+              {data.allContentfulProject.edges[5].node.projectTitle}
+            </h3>
+          </div>
+          <Img
+            fluid={data.allContentfulProject.edges[5].node.gridImage.fluid}
+            alt={data.allContentfulProject.edges[5].node.projectTitle}
+            key={data.allContentfulProject.edges[5].node.gridImage.id}
+          />
         </Link>
       </ProjectEl>
       <ProjectEl className="project-single project-row-5">
-        <Link to={`/work/${data.allContentfulProject.edges[6].node.slug}`}>
-          <a className="project-link">
-            <div className="project-hover">
-              <h3 className="project-name">
-                {data.allContentfulProject.edges[6].node.projectTitle}
-              </h3>
-            </div>
-            <Img
-              fluid={data.allContentfulProject.edges[6].node.gridImage.fluid}
-              alt={data.allContentfulProject.edges[6].node.projectTitle}
-              key={data.allContentfulProject.edges[6].node.gridImage.id}
-            />
-          </a>
+        <Link
+          className="project-link"
+          to={`/work/${data.allContentfulProject.edges[6].node.slug}`}
+        >
+          <div className="project-hover">
+            <h3 className="project-name">
+              {data.allContentfulProject.edges[6].node.projectTitle}
+            </h3>
+          </div>
+          <Img
+            fluid={data.allContentfulProject.edges[6].node.gridImage.fluid}
+            alt={data.allContentfulProject.edges[6].node.projectTitle}
+            key={data.allContentfulProject.edges[6].node.gridImage.id}
+          />
         </Link>
       </ProjectEl>
       <ProjectEl className="project-single project-row-6">
-        <Link to={`/work/${data.allContentfulProject.edges[7].node.slug}`}>
-          <a className="project-link">
-            <div className="project-hover">
-              <h3 className="project-name">
-                {data.allContentfulProject.edges[7].node.projectTitle}
-              </h3>
-            </div>
-            <Img
-              fluid={data.allContentfulProject.edges[7].node.gridImage.fluid}
-              alt={data.allContentfulProject.edges[7].node.projectTitle}
-              key={data.allContentfulProject.edges[7].node.gridImage.id}
-            />
-          </a>
+        <Link
+          className="project-link"
+          to={`/work/${data.allContentfulProject.edges[7].node.slug}`}
+        >
+          <div className="project-hover">
+            <h3 className="project-name">
+              {data.allContentfulProject.edges[7].node.projectTitle}
+            </h3>
+          </div>
+          <Img
+            fluid={data.allContentfulProject.edges[7].node.gridImage.fluid}
+            alt={data.allContentfulProject.edges[7].node.projectTitle}
+            key={data.allContentfulProject.edges[7].node.gridImage.id}
+          />
         </Link>
       </ProjectEl>
     </WorkGrid>

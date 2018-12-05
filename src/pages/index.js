@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
 import styled from "@emotion/styled";
-import { TweenMax, Power2, Expo } from "gsap";
+import { TweenMax, Expo } from "gsap";
 import backgroundImage from "../images/home-background.jpg";
 
 const Introduction = styled("div")`
@@ -78,7 +78,7 @@ const BackgroundImage = styled("div")`
       bottom: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.7);
     }
     img {
       object-fit: cover;
@@ -88,7 +88,7 @@ const BackgroundImage = styled("div")`
   }
 `;
 
-class HomePage extends React.Component {
+class HomePage extends Component {
   constructor() {
     super();
     this.state = {

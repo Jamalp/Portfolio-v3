@@ -80,10 +80,6 @@ const ProjectMeta = styled("div")`
 `;
 
 class CopyRow extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     if (this.props.data) {
       return (
@@ -107,6 +103,7 @@ class CopyRow extends Component {
                 className="link--primary"
                 href={this.props.data.projectUrl}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 {this.props.data.projectUrlDisplay}
               </a>

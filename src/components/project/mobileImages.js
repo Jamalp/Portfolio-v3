@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import { vars } from "../../utils/emotionVars";
+import Img from "gatsby-image";
 
 const MobileImagesWrapper = styled("div")`
   display: flex;
@@ -28,17 +29,16 @@ const MobileImagesWrapper = styled("div")`
   }
 `;
 
-class MobileImages extends React.Component {
-  constructor() {
-    super();
-  }
-
+class MobileImages extends Component {
   render() {
     if (this.props.data) {
-      const mobileImageRow = this.props.data.map((item, index) => {
+      const mobileImageRow = this.props.data.map(item => {
         return (
-          <div key={`mobile-image-${index}`}>
-            <img src={item.url} alt={item.alt} />
+          <div key={item.id}>
+            <Img
+              fluid={item.fluid}
+              alt={`mobile device ${item.file.fileName}`}
+            />
           </div>
         );
       });

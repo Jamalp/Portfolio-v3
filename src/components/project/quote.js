@@ -30,10 +30,6 @@ const QuoteEl = styled("div")`
 `;
 
 class Quote extends Component {
-  constructor() {
-    super();
-  }
-
   render() {
     if (this.props.data.quote) {
       return (

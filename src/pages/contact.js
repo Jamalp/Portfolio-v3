@@ -88,6 +88,7 @@ const ContactPage = () => (
             className="link--primary"
             href="http://photography.jamalpowell.com/"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Photography
           </a>
@@ -95,6 +96,7 @@ const ContactPage = () => (
             className="link--primary"
             href="http://turkey.jamalpowell.com/"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Travel
           </a>
@@ -102,6 +104,7 @@ const ContactPage = () => (
             className="link--primary"
             href="https://www.instagram.com/jamalpowell/"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Instagram
           </a>

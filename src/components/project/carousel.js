@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import { vars } from "../../utils/emotionVars";
+import "../../styles/lib/flickity.scss";
 
 const CarouselElWrapper = styled("div")`
   display: flex;
@@ -78,14 +79,7 @@ const CarouselEl = styled("div")`
 
     /* Hide flickity controls */
     .flickity-page-dots {
-      /* display: flex;
-      width: 100%;
-      bottom: -3px; */
       .dot {
-        /* height: 3px;
-        width: 100%;
-        border-radius: 0;
-        margin: 0; */
         background-color: ${vars.white};
         transition: opacity 0.2s ease;
       }
@@ -142,24 +136,16 @@ class Carousel extends Component {
         pageDots: true,
         lazyLoad: true,
         percentPosition: false,
-        imagesLoaded: true,
-        on: {
-          ready: () => {
-            if (this.element.querySelector("video")) {
-              this.element.querySelector("video").play();
-            }
-          }
-        }
+        imagesLoaded: true
       }
     };
   }
   componentDidMount() {
-    if (this.props.data) {
+    if (this.props.data.gallery) {
       this.element = document.querySelector(".carousel");
       this.Flickity = require("flickity");
       this.initiateFlickity();
       this.parallax();
-      // this.events();
     }
   }
 
@@ -179,7 +165,7 @@ class Carousel extends Component {
     const imgs = this.element.querySelectorAll(".carousel-item-media");
     const docStyle = document.documentElement.style;
     const transformProp =
-      typeof docStyle.transform == "string" ? "transform" : "WebkitTransform";
+      typeof docStyle.transform === "string" ? "transform" : "WebkitTransform";
 
     this.carousel.on("scroll", () => {
       this.carousel.slides.forEach((slide, i) => {
@@ -205,11 +191,11 @@ class Carousel extends Component {
 
   render() {
     let sidebarCopy = null;
-    if (this.props.data) {
+    if (this.props.data.gallery) {
       const galleryItems = this.props.data.gallery.map((item, index) => {
-        if (item.gallery_video) {
+        if (item.file.contentType === "video/mp4") {
           return (
-            <div className="carousel-item" key={`carousel-item-${index}`}>
+            <div className="carousel-item" key={item.id}>
               <video
                 className="carousel-item-media"
                 autoPlay
@@ -217,20 +203,24 @@ class Carousel extends Component {
                 loop
                 playsInline
               >
-                <source src={item.gallery_video} type="video/mp4" />
+                <source src={item.file.url} type={item.file.contentType} />
               </video>
             </div>
           );
-        } else if (item.gallery_image) {
+        } else if (item.file.contentType !== "video/mp4") {
           return (
-            <div className="carousel-item" key={`carousel-item-${index}`}>
-              <img className="carousel-item-media" src={item.gallery_image} />
+            <div className="carousel-item" key={item.id}>
+              <img
+                className="carousel-item-media"
+                src={item.file.url}
+                alt={item.file.fileName}
+              />
             </div>
           );
         }
       });
-      if (this.props.data.add_gallery_copy) {
-        sidebarCopy = this.props.data.add_gallery_copy;
+      if (this.props.data.galleryCopy) {
+        sidebarCopy = this.props.data.galleryCopy.childMarkdownRemark.html;
       }
       return (
         <CarouselElWrapper>
