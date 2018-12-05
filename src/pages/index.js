@@ -62,7 +62,7 @@ const BackgroundImage = styled("div")`
   height: 100%;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.5s cubic-bezier(1, 0.01, 0.7, 0.93);
+  transition: opacity 0.8s ease;
   &.home-link-hover {
     opacity: 1;
   }
@@ -98,7 +98,6 @@ class HomePage extends React.Component {
   }
 
   handleHover() {
-    console.log("hi");
     this.setState({ isHovered: !this.state.isHovered });
   }
 

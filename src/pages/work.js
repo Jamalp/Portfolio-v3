@@ -281,7 +281,7 @@ export const pageQuery = graphql`
           projectTitle
           slug
           gridImage {
-            fluid(maxWidth: 1800) {
+            fluid(maxWidth: 1800, quality: 100) {
               ...GatsbyContentfulFluid_withWebp_noBase64
             }
           }
