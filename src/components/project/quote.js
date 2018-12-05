@@ -35,7 +35,7 @@ class Quote extends Component {
   }
 
   render() {
-    if (this.props.data) {
+    if (this.props.data.quote) {
       return (
         <QuoteEl>
           <blockquote>{this.props.data.quote}</blockquote>

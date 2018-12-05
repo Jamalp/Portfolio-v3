@@ -60,17 +60,20 @@ class PageTour extends Component {
   }
 
   render() {
-    if (this.props.data) {
-      const sidebarContent = this.props.data.pageTourDescriptions.map(
-        (el, i) => {
+    if (this.props.data.pageTour) {
+      let sidebarContent = null;
+      if (this.props.data.pageTourDescriptions) {
+        sidebarContent = this.props.data.pageTourDescriptions.map((el, i) => {
           return (
             <div className="sidebar-content" key={`sidebar_content_${i}`}>
               <div className="line" />
               <p>{el}</p>
             </div>
           );
-        }
-      );
+        });
+      } else {
+        return false;
+      }
       return (
         <PageTourElement>
           <div className="image">
