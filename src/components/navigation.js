@@ -18,7 +18,6 @@ const Header = styled("header")`
   transform: translate3d(calc(-100% + 120px), 0, 0);
   z-index: 1000;
   @media (max-width: 950px) {
-    display: none;
     bottom: auto;
     right: 0;
     height: ${vars.header_height};
@@ -143,7 +142,8 @@ class Navigation extends Component {
     this.anim_header = null;
     this.state = {
       isNavigationOpen: false,
-      header_hide_amount: null
+      header_hide_amount: null,
+      isMobileDevice: false
     };
     this.navigationAnimation = new TimelineLite({
       paused: true,
@@ -205,7 +205,6 @@ class Navigation extends Component {
       this.links,
       1,
       { skewY: 4, y: "100%", ease: Expo.easeOut, delay: 0.1 },
-      // { skewY: 0, y: "-120%", ease: Expo.easeOut, delay: 0 },
       0.1
     );
     const anim_line = new TweenMax.fromTo(
@@ -242,9 +241,25 @@ class Navigation extends Component {
   }
 
   componentDidMount() {
-    this.introAnimation();
-    this.initiateNavigationAnimation();
-    this.resize();
+    this.handleDeviceDetect();
+    if (this.state.isMobileDevice === false) {
+      this.introAnimation();
+      this.initiateNavigationAnimation();
+      this.resize();
+    }
+  }
+
+  isMobileDevice() {
+    return (
+      typeof window.orientation !== "undefined" ||
+      navigator.userAgent.indexOf("IEMobile") !== -1
+    );
+  }
+
+  handleDeviceDetect() {
+    if (this.isMobileDevice() === true) {
+      this.setState({ isMobileDevice: true });
+    }
   }
 
   render() {
@@ -284,7 +299,7 @@ class Navigation extends Component {
         </NavigationInner>
         <div className="navigation-sidebar">
           <div id="navigation_line" />
-          <Circle />
+          <Circle data={{ isMobileDevice: this.state.isMobileDevice }} />
           <div className="menu-trigger" onClick={this.toggleMenu}>
             <span className="menu-closed">Menu</span>
             {/* <span className="menu-open">Close</span> */}

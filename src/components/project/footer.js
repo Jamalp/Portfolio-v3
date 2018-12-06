@@ -28,7 +28,7 @@ const FooterEl = styled("footer")`
     cursor: pointer;
     @media (max-width: 950px) {
       width: 100%;
-      height: 200px;
+      height: 120px;
     }
     &:hover {
       .overlay {
@@ -83,7 +83,7 @@ const FooterEl = styled("footer")`
       overflow: hidden;
       position: relative;
       @media (max-width: 950px) {
-        font-size: 36px;
+        font-size: 24px;
       }
       &:after {
         content: "";

@@ -4,6 +4,7 @@ import Img from "gatsby-image";
 import styled from "@emotion/styled";
 import PageTitle from "../components/pageTitle";
 import { vars } from "../utils/emotionVars";
+
 const WorkGrid = styled("section")`
   margin-left: 120px;
   margin-top: 78px;

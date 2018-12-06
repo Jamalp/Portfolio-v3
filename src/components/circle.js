@@ -22,14 +22,22 @@ const CircleEl = styled("div")`
       background-color: ${vars.black};
       transform: scale(1.2) !important;
     }
+    @media (max-width: 950px) {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
   }
 `;
 
 class Circle extends Component {
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
-    this.circleEl = document.querySelector("#navigation_circle_wrapper");
-
-    this.addEvent();
+    if (this.props.data.isMobileDevice === false) {
+      this.circleEl = document.querySelector("#navigation_circle_wrapper");
+      this.addEvent();
+    }
   }
 
   componentWillUnmount() {
