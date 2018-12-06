@@ -18,7 +18,7 @@ const MobileImagesWrapper = styled("div")`
     width: 100%;
     margin-left: 0;
     margin-top: ${vars.mobile_margin_down};
-    padding: 0 30px;
+    padding: 0 ${vars.mobile_margin_sides};
   }
 
   & > div {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import Img from "gatsby-image";
+import { vars } from "../../utils/emotionVars";
 const ImageRow = styled("div")`
   display: flex;
   align-items: flex-start;
@@ -11,7 +12,7 @@ const ImageRow = styled("div")`
     margin-left: 0;
     flex-direction: column;
     width: 100%;
-    padding: 0 30px;
+    padding: 0 ${vars.mobile_margin_sides};
   }
   .wide {
     width: 61.2994%;

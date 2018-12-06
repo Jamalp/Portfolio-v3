@@ -9,7 +9,7 @@ const AboutContent = styled("article")`
   margin: 22px auto 0;
   @media (max-width: 950px) {
     width: 100%;
-    padding: 0 30px;
+    padding: 0 ${vars.mobile_margin_sides};
     margin: 22px auto 0;
   }
   p {
@@ -30,7 +30,7 @@ const AboutClients = styled("aside")`
   padding-bottom: 110px;
   @media (max-width: 950px) {
     width: 100%;
-    padding: 0 30px 20px;
+    padding: 0 ${vars.mobile_margin_sides} 20px;
     margin: 0 auto;
   }
   p,

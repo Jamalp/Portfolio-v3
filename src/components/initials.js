@@ -12,8 +12,6 @@ const InitialsEl = styled("h4")`
   cursor: pointer;
   @media (max-width: 1024px) {
     display: none;
-    bottom: 22px;
-    right: 30px;
   }
 
   .i-name-rest,

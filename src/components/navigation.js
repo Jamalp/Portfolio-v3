@@ -18,6 +18,7 @@ const Header = styled("header")`
   transform: translate3d(calc(-100% + 120px), 0, 0);
   z-index: 1000;
   @media (max-width: 950px) {
+    display: none;
     bottom: auto;
     right: 0;
     height: ${vars.header_height};
@@ -37,7 +38,7 @@ const Header = styled("header")`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 30px;
+      padding: 0 ${vars.mobile_margin_sides};
     }
     #navigation_line {
       width: 1px;

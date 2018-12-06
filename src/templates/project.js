@@ -36,16 +36,16 @@ const HeroImage = styled("div")`
     margin-bottom: 56px;
   }
 
+  @media (max-width: 950px) {
+    width: 100%;
+    margin: 0 0 ${vars.mobile_margin_down};
+    height: 40vh;
+  }
+
   picture,
   img {
     height: 100%;
     object-fit: cover;
-  }
-
-  @media (max-width: 950px) {
-    width: 100%;
-    margin: 0 0 ${vars.mobile_margin_down};
-    height: auto;
   }
 `;
 
@@ -152,6 +152,9 @@ export const pageQuery = graphql`
         }
       }
       pageTour {
+        file {
+          url
+        }
         fluid(quality: 100) {
           ...GatsbyContentfulFluid_withWebp_noBase64
         }

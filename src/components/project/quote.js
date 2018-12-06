@@ -7,7 +7,7 @@ const QuoteEl = styled("div")`
   margin-top: 92px;
   @media (max-width: 950px) {
     margin-left: 0;
-    padding: 0 30px;
+    padding: 0 ${vars.mobile_margin_sides};
     margin-top: ${vars.mobile_margin_down};
   }
   blockquote {
@@ -16,7 +16,7 @@ const QuoteEl = styled("div")`
     width: 62.807432%;
     margin-bottom: 15px;
     @media (max-width: 1024px) {
-      font-size: 36px;
+      font-size: 24px;
     }
     @media (max-width: 950px) {
       width: 100%;

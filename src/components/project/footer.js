@@ -72,7 +72,7 @@ const FooterEl = styled("footer")`
       @media (max-width: 950px) {
         transform: translate3d(0, -50%, 0);
         opacity: 1;
-        left: 30px;
+        left: ${vars.mobile_margin_sides};
       }
     }
     p {
@@ -117,7 +117,7 @@ const FooterEl = styled("footer")`
     padding-left: 30px;
     @media (max-width: 950px) {
       width: 100%;
-      padding: 0 30px 20px;
+      padding: 0 ${vars.mobile_margin_sides} 20px;
       margin: 0 auto;
       align-items: flex-start;
     }
@@ -138,8 +138,8 @@ const FooterLine = styled("div")`
   top: 0;
   left: 0;
   @media (max-width: 950px) {
-    width: calc(100% - 60px);
-    padding: 0 30px;
+    width: calc(100% - 40px);
+    padding: 0 ${vars.mobile_margin_sides};
     right: 0;
     margin: 0 auto;
   }

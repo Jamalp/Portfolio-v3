@@ -8,8 +8,7 @@ const ContactBlurb = styled("article")`
   width: calc(100% - 240px);
   margin: 92px auto 110px;
   @media (max-width: 950px) {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 0 ${vars.mobile_margin_sides};
     height: 100%;
     width: 100%;
     margin-top: 24px;

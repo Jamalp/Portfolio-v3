@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import Img from "gatsby-image";
+import { vars } from "../../utils/emotionVars";
 const PageTourElement = styled("div")`
   display: flex;
   justify-content: space-between;
@@ -11,7 +12,7 @@ const PageTourElement = styled("div")`
   @media (max-width: 950px) {
     margin: 0;
     display: block;
-    padding: 0 30px;
+    padding: 0 ${vars.mobile_margin_sides};
   }
   .image {
     width: 77.25%;
@@ -67,16 +68,15 @@ class PageTour extends Component {
             </div>
           );
         });
-      } else {
-        return false;
       }
       return (
         <PageTourElement>
           <div className="image">
-            <Img
+            {/* <Img
               fluid={this.props.data.pageTour.fluid}
               key={this.props.data.pageTour.id}
-            />
+            /> */}
+            <img src={this.props.data.pageTour.file.url} alt="page tour" />
           </div>
           <div className="sidebar">{sidebarContent}</div>
         </PageTourElement>

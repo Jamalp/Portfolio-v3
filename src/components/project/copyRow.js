@@ -13,7 +13,7 @@ const CopyRowWrapper = styled("div")`
   }
   @media (max-width: 950px) {
     width: 100%;
-    padding: 0 30px;
+    padding: 0 ${vars.mobile_margin_sides};
     margin-bottom: ${vars.mobile_margin_down};
     margin-left: 0;
   }
@@ -39,11 +39,19 @@ const CopyRowEl = styled("div")`
       font-size: 28px;
       font-weight: 700;
       margin-bottom: 28px;
+      @media (max-width: 950px) {
+        font-size: 24px;
+        line-height: 28px;
+      }
     }
   }
   p {
     font-size: 24px;
     line-height: 32px;
+    @media (max-width: 950px) {
+      font-size: 18px;
+      line-height: 24px;
+    }
   }
 `;
 

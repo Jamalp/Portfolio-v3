@@ -15,7 +15,7 @@ const CarouselElWrapper = styled("div")`
   @media (max-width: 950px) {
     width: 100%;
     margin: 40px 0 0;
-    padding: 0 30px 4px;
+    padding: 0 ${vars.mobile_margin_sides} 4px;
     display: block;
   }
 `;
@@ -107,13 +107,12 @@ const CarouselSidebar = styled("div")`
   width: 20.25%;
   @media (max-width: 1024px) {
     margin-left: 12.5%;
-    margin-top: 28px;
+    margin-top: 40px;
     width: calc(100% - 12.5%);
   }
   @media (max-width: 950px) {
     width: 100%;
     margin-left: 0;
-    margin-top: 28px;
   }
   p {
     font-size: 18px;

@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
 import styled from "@emotion/styled";
 import PageTitle from "../components/pageTitle";
-
+import { vars } from "../utils/emotionVars";
 const WorkGrid = styled("section")`
   margin-left: 120px;
   margin-top: 78px;
@@ -16,12 +16,17 @@ const ProjectEl = styled("div")`
   margin-bottom: 110px;
   @media (max-width: 950px) {
     margin: 0 auto 20px;
-    padding: 0 30px;
+    padding: 0 ${vars.mobile_margin_sides};
   }
   &.project-hero {
     width: calc(100% - 120px);
     @media (max-width: 950px) {
       width: 100%;
+    }
+  }
+  .gatsby-image-wrapper {
+    @media (max-width: 950px) {
+      height: 60vh;
     }
   }
 
@@ -64,14 +69,17 @@ const ProjectEl = styled("div")`
   .project-link {
     position: relative;
     display: block;
-    &:hover {
-      .project-hover {
-        pointer-events: auto;
-        background-color: rgba(0, 0, 0, 0.6);
-        .project-name {
-          opacity: 1;
-          &:after {
-            transform: translate3d(0, 0, 0);
+
+    body:not(.touch-device) & {
+      &:hover {
+        .project-hover {
+          pointer-events: auto;
+          background-color: rgba(0, 0, 0, 0.6);
+          .project-name {
+            opacity: 1;
+            &:after {
+              transform: translate3d(0, 0, 0);
+            }
           }
         }
       }
@@ -94,7 +102,7 @@ const ProjectEl = styled("div")`
     z-index: 1;
     @media (max-width: 950px) {
       pointer-events: auto;
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.3);
     }
     .project-name {
       opacity: 0;
@@ -109,8 +117,8 @@ const ProjectEl = styled("div")`
       letter-spacing: 1px;
       @media (max-width: 950px) {
         opacity: 1;
-        margin-left: 20px;
-        margin-bottom: 20px;
+        margin: 20px;
+        font-size: 24px;
       }
       &:after {
         content: "";

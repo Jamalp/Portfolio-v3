@@ -20,7 +20,7 @@ const Title = styled("div")`
     position: absolute;
     @media (max-width: 950px) {
       position: relative;
-      padding-left: 30px;
+      padding-left: ${vars.mobile_margin_sides};
       font-size: ${vars.f_title_mobile};
     }
   }

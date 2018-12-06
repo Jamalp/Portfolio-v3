@@ -3,9 +3,10 @@ import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import { TweenMax, Expo } from "gsap";
 import backgroundImage from "../images/home-background.jpg";
-
+import { vars } from "../utils/emotionVars";
 const Introduction = styled("div")`
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,9 +16,9 @@ const Introduction = styled("div")`
   margin: 0 auto;
   position: relative;
   @media (max-width: 950px) {
-    padding-left: 30px;
-    padding-right: 30px;
-    height: 100vh;
+    padding: 0 ${vars.mobile_margin_sides};
+    height: 100%;
+    min-height: 100vh;
     width: 100%;
   }
   & > div:first-of-type {
@@ -45,8 +46,10 @@ const Introduction = styled("div")`
     margin-top: 40px;
     z-index: 2;
     @media (max-width: 950px) {
-      font-size: 24px;
       margin-top: 20px;
+      .link--primary {
+        font-size: 24px;
+      }
     }
   }
 `;
