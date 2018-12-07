@@ -49,7 +49,8 @@ a {
       will-change: transform;
     }
 
-    &:hover {
+    &:hover,
+    body.touch-device & {
       &:after {
         transform: translate3d(0, 0, 0);
       }

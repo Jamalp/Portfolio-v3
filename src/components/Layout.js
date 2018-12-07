@@ -6,7 +6,6 @@ import Navigation from "./Navigation";
 import Initials from "./Initials";
 import Transition from "./Transition";
 import "../styles/base.scss";
-
 const Layout = ({ children, location }) => (
   <StaticQuery
     query={graphql`

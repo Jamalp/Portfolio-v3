@@ -10,7 +10,7 @@ const InitialsEl = styled("h4")`
   text-align: center;
   z-index: 100;
   cursor: pointer;
-  @media (max-width: 1024px) {
+  @media (max-width: 950px) {
     display: none;
   }
 
@@ -33,20 +33,22 @@ const InitialsEl = styled("h4")`
       font-size: 18px;
     }
   }
-  &:hover {
-    .i-contact {
-      width: 58px;
-      opacity: 1;
-    }
-    .i-first-name {
-      .i-name-rest {
-        width: 49px;
-        padding-right: 4px;
+  body:not(.touch-device) & {
+    &:hover {
+      .i-contact {
+        width: 58px;
+        opacity: 1;
       }
-    }
-    .i-last-name {
-      .i-name-rest {
-        width: 52px;
+      .i-first-name {
+        .i-name-rest {
+          width: 49px;
+          padding-right: 4px;
+        }
+      }
+      .i-last-name {
+        .i-name-rest {
+          width: 52px;
+        }
       }
     }
   }

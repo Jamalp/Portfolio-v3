@@ -216,7 +216,7 @@ class Navigation extends Component {
     const anim_links = new TweenMax.staggerFrom(
       this.links,
       1,
-      { skewY: 4, y: "100%", ease: Expo.easeOut, delay: 0.1 },
+      { skewY: 4, y: "140%", ease: Expo.easeOut, delay: 0.1 },
       0.1
     );
     const anim_line = new TweenMax.fromTo(
@@ -231,7 +231,10 @@ class Navigation extends Component {
       }
     );
     // Distinction between desktop and mobile animation
-    if (document.querySelector("body").classList.contains("mobile-device")) {
+    if (
+      document.querySelector("body").classList.contains("mobile-device") &&
+      window.innerWidth < 1024
+    ) {
       this.anim_innerNavigation_mobile = new TweenMax.fromTo(
         ".navigation-inner",
         1.3,
@@ -259,19 +262,17 @@ class Navigation extends Component {
     }
   }
 
-  componentWillUnmount() {
-    console.log(240);
-  }
-
   componentDidMount() {
     this.handleDeviceDetect();
     this.initiateNavigationAnimation();
   }
 
   componentDidUpdate() {
-    if (this.state.isMobileDevice === false) {
+    if (window.innerWidth >= 1024) {
       this.introAnimation();
       this.resize();
+    } else {
+      console.log(276);
     }
   }
 

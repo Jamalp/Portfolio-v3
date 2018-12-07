@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import { vars } from "../../utils/emotionVars";
 import styled from "@emotion/styled";
 import Img from "gatsby-image";
+import { TouchDevice } from "../Helpers";
 
 const FooterEl = styled("footer")`
   display: flex;
@@ -30,7 +31,8 @@ const FooterEl = styled("footer")`
       width: 100%;
       height: 120px;
     }
-    &:hover {
+    &:hover,
+    body.touch-device & {
       .overlay {
         background-color: rgba(0, 0, 0, 0.8);
       }
@@ -42,6 +44,7 @@ const FooterEl = styled("footer")`
         transform: translate3d(0, 0, 0);
       }
     }
+
     .gatsby-image-wrapper {
       height: 100%;
     }
@@ -85,6 +88,7 @@ const FooterEl = styled("footer")`
       @media (max-width: 950px) {
         font-size: 24px;
       }
+
       &:after {
         content: "";
         position: absolute;
@@ -98,6 +102,9 @@ const FooterEl = styled("footer")`
         transform: translate3d(-100%, 0, 0);
         transition: transform 0.5s cubic-bezier(1, 0.01, 0.7, 0.93);
         transition-delay: 0.2s;
+        body.touch-device & {
+          display: none;
+        }
         @media (max-width: 950px) {
           display: none;
         }
@@ -150,6 +157,9 @@ const FooterLine = styled("div")`
 `;
 
 class Footer extends Component {
+  componentDidMount() {
+    TouchDevice();
+  }
   render() {
     if (this.props.data) {
       return (
