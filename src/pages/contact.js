@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import PageTitle from "../components/pageTitle";
+import PageTitle from "../components/PageTitle";
 import { vars } from "../utils/emotionVars";
 
 const ContactBlurb = styled("article")`
@@ -81,7 +81,7 @@ const ContactPage = () => (
         </a>
       </p>
       <ConnectBlurb>
-        <p>Connect with me on my photography blog & Instagram:</p>
+        <p>Get to know me through my photographs.</p>
         <SocialLinks>
           <a
             className="link--primary"

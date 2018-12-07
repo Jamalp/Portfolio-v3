@@ -2,7 +2,7 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
 import styled from "@emotion/styled";
-import PageTitle from "../components/pageTitle";
+import PageTitle from "../components/PageTitle";
 import { vars } from "../utils/emotionVars";
 
 const WorkGrid = styled("section")`

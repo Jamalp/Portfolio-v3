@@ -136,7 +136,14 @@ class Carousel extends Component {
         pageDots: true,
         lazyLoad: true,
         percentPosition: false,
-        imagesLoaded: true
+        imagesLoaded: true,
+        on: {
+          ready: () => {
+            if (this.element.querySelector("video")) {
+              this.element.querySelector("video").play();
+            }
+          }
+        }
       }
     };
   }

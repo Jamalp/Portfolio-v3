@@ -4,14 +4,14 @@ import { graphql } from "gatsby";
 import styled from "@emotion/styled";
 import { vars } from "../utils/emotionVars";
 import Img from "gatsby-image";
-import Title from "../components/project/projectTitle";
-import CopyRow from "../components/project/copyRow";
-import PageTour from "../components/project/pageTour";
-import ImageRow from "../components/project/imageRow";
-import Quote from "../components/project/quote";
-import Carousel from "../components/project/carousel";
-import MobileImages from "../components/project/mobileImages";
-import Footer from "../components/project/footer";
+import Title from "../components/project/ProjectTitle";
+import CopyRow from "../components/project/CopyRow";
+import PageTour from "../components/project/PageTour";
+import ImageRow from "../components/project/ImageRow";
+import Quote from "../components/project/Quote";
+import Carousel from "../components/project/Carousel";
+import MobileImages from "../components/project/MobileImages";
+import Footer from "../components/project/Footer";
 const ProjectPage = styled("section")`
   @media (max-width: 950px) {
     padding-top: ${vars.header_height};
@@ -108,10 +108,6 @@ class Project extends Component {
     );
   }
 }
-
-Project.propTypes = {
-  data: PropTypes.object.isRequired
-};
 
 export default Project;
 

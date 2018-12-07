@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, graphql } from "gatsby";
+import { Link } from "gatsby";
 import { vars } from "../../utils/emotionVars";
 import styled from "@emotion/styled";
 import Img from "gatsby-image";

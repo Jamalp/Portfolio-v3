@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import { vars } from "../utils/emotionVars";
-import Circle from "./circle";
+import Circle from "./Circle";
 import { TweenMax, Expo, TimelineLite } from "gsap";
 
 const Header = styled("header")`
@@ -266,11 +266,12 @@ class Navigation extends Component {
   componentDidMount() {
     this.handleDeviceDetect();
     this.initiateNavigationAnimation();
-    if (!document.querySelector("body").classList.contains("mobile-device")) {
-      window.setTimeout(() => {
-        this.introAnimation();
-        this.resize();
-      }, 100);
+  }
+
+  componentDidUpdate() {
+    if (this.state.isMobileDevice === false) {
+      this.introAnimation();
+      this.resize();
     }
   }
 
@@ -285,6 +286,8 @@ class Navigation extends Component {
     if (this.isMobileDevice() === true) {
       document.querySelector("body").classList.add("mobile-device");
       this.setState({ isMobileDevice: true });
+    } else {
+      this.setState({ isMobileDevice: false });
     }
   }
 
@@ -316,11 +319,11 @@ class Navigation extends Component {
                 Contact
               </Link>
             </div>
-            <div className="navigation-link-wrapper">
+            {/* <div className="navigation-link-wrapper">
               <Link onClick={this.toggleMenu} to="/photography">
                 Photography
               </Link>
-            </div>
+            </div> */}
           </nav>
         </NavigationInner>
         <div className="navigation-sidebar">

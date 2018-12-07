@@ -5,8 +5,30 @@ require("dotenv").config({ path: `./.env.${env}` });
 
 module.exports = {
   siteMetadata: {
-    title: "Jamal Powells Portfolio",
-    siteUrl: `http://www.jamalpowell.com`
+    title: "Jamal Powell · Web Developer, creative & photographer.",
+    siteUrl: `https://jamalpowell.com`,
+    titleAlt: "Jamal Powell Portfolio", // This allows an alternative site title for SEO schema.
+    publisher: "Jamal Powell", // Organization name used for SEO schema
+    description:
+      "Jamal Powell is an independent web developer, photographer & creative hailing from Honolulu and currently based in Portland, Oregon. Motivated by a genuine curiosity in the world, Jamal thrives in collaborative environments that fuse cutting - edge technology with creative thinking and design.",
+    canonicalUrl: "https://jamalpowell.com",
+    image: "https://jamalpowell.com/images/jamal-powell.jpg",
+    ogImage: "https://jamalpowell.com/images/og-image.jpg",
+    organization: {
+      name: "Jamal Powell",
+      url: "https://jamalpowell.com",
+      logo: "https://jamalpowell.com/android-chrome-512x512.png"
+    },
+    author: "Jamal Powell", // Author for RSS author segment and SEO schema
+    authorUrl: "https://jamalpowell.com/about", // URL used for author and publisher schema, can be a social profile or other personal site
+    social: {
+      twitter: "@jamalpowell"
+    },
+    shortTitle: "Jamal Powell", // Used for App manifest e.g. Mobile Home Screen
+    logo: "/src/images/favicon.png", // Logo used for SEO, RSS, and App manifest
+    backgroundColor: "#000000", // Used for Offline Manifest
+    themeColor: "#ffffff", // Used for Offline Manifest
+    copyright: "Copyright © 2019 Jamal Powell" // Copyright string for the RSS feed
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -54,13 +76,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "gatsby-starter-default",
-        short_name: "starter",
+        name: "Jamal Powells Portfolio",
+        short_name: "Jamal Powells Portfolio",
         start_url: "/",
-        background_color: "#663399",
-        theme_color: "#663399",
+        background_color: "#000000",
+        theme_color: "#ffffff",
         display: "minimal-ui",
-        icon: "src/images/gatsby-icon.png" // This path is relative to the root of the site.
+        icon: "src/images/favicon.png" // This path is relative to the root of the site.
       }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

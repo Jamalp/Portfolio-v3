@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import PageTitle from "../components/pageTitle";
+import PageTitle from "../components/PageTitle";
 import { vars } from "../utils/emotionVars";
 
 const AboutContent = styled("article")`
@@ -94,7 +94,7 @@ const AboutPage = () => (
       <span />
     </AboutLine>
     <AboutClients>
-      <p>Clients & brands I've had the opportunity to worked with.</p>
+      <p>Clients & brands I've had the opportunity to worked with:</p>
       <ul>
         <li>Apple, </li>
         <li>The New York Times, </li>

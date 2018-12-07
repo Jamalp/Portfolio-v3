@@ -30,23 +30,11 @@ const CircleEl = styled("div")`
 `;
 
 class Circle extends Component {
-  constructor(props) {
-    super(props);
-  }
-  componentDidMount() {
-    if (
-      this.props.data.isMobileDevice === true ||
-      !document.querySelector("body").classList.contains("mobile-device")
-    ) {
+  componentDidUpdate() {
+    if (this.props.data.isMobileDevice === false) {
       this.circleEl = document.querySelector("#navigation_circle_wrapper");
       this.addEvent();
     }
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener("mousemove", e => {
-      this.magnetize(e);
-    });
   }
 
   addEvent() {
