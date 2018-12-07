@@ -34,7 +34,10 @@ class Circle extends Component {
     super(props);
   }
   componentDidMount() {
-    if (this.props.data.isMobileDevice === false) {
+    if (
+      this.props.data.isMobileDevice === true ||
+      !document.querySelector("body").classList.contains("mobile-device")
+    ) {
       this.circleEl = document.querySelector("#navigation_circle_wrapper");
       this.addEvent();
     }

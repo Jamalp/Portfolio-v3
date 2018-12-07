@@ -4,9 +4,10 @@ import styled from "@emotion/styled";
 import { TweenMax, Expo } from "gsap";
 import backgroundImage from "../images/home-background.jpg";
 import { vars } from "../utils/emotionVars";
+import Div100vh from "react-div-100vh";
+
 const Introduction = styled("div")`
   height: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,9 +17,8 @@ const Introduction = styled("div")`
   margin: 0 auto;
   position: relative;
   @media (max-width: 950px) {
-    padding: 0 ${vars.mobile_margin_sides};
+    padding: 80px ${vars.mobile_margin_sides} 0;
     height: 100%;
-    min-height: 100vh;
     width: 100%;
   }
   & > div:first-of-type {
@@ -115,30 +115,32 @@ class HomePage extends Component {
     const hoverClass = this.state.isHovered ? "home-link-hover" : "";
     return (
       <>
-        <Introduction id="introduction_copy">
-          <div>
-            <p>
-              Hey, I'm a Web Developer & Creative Technologist based in
-              Portland, Oregon.
-            </p>
-            <p>
-              {" "}
-              I've had the privilege to work with companies and organizations
-              such as The New York Times, Umbro, Tracksmith, Master & Dynamic,
-              R+Co & RED.
-            </p>
-          </div>
-          <div className="cta-wrapper">
-            <Link
-              to="/work"
-              className="link--primary"
-              onMouseEnter={this.handleHover}
-              onMouseLeave={this.handleHover}
-            >
-              View My Work
-            </Link>
-          </div>
-        </Introduction>
+        <Div100vh>
+          <Introduction id="introduction_copy">
+            <div>
+              <p>
+                Hey, I'm a Web Developer & Creative Technologist based in
+                Portland, Oregon.
+              </p>
+              <p>
+                {" "}
+                I've had the privilege to work with companies and organizations
+                such as The New York Times, Umbro, Tracksmith, Master & Dynamic,
+                R+Co & RED.
+              </p>
+            </div>
+            <div className="cta-wrapper">
+              <Link
+                to="/work"
+                className="link--primary"
+                onMouseEnter={this.handleHover}
+                onMouseLeave={this.handleHover}
+              >
+                View My Work
+              </Link>
+            </div>
+          </Introduction>
+        </Div100vh>
         <BackgroundImage className={`${hoverClass} background-image-hover`}>
           <div className="background-image-wrapper">
             <img src={backgroundImage} alt="Visit my work page" />

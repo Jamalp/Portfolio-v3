@@ -64,7 +64,7 @@ const CarouselEl = styled("div")`
     width: 100%;
     height: 100%;
     @media (max-width: 600px) {
-      height: 180px;
+      height: 200px;
     }
 
     .flickity-viewport {
@@ -79,6 +79,7 @@ const CarouselEl = styled("div")`
 
     /* Hide flickity controls */
     .flickity-page-dots {
+      bottom: -30px;
       .dot {
         background-color: ${vars.white};
         transition: opacity 0.2s ease;
@@ -107,7 +108,7 @@ const CarouselSidebar = styled("div")`
   width: 20.25%;
   @media (max-width: 1024px) {
     margin-left: 12.5%;
-    margin-top: 40px;
+    margin-top: 60px;
     width: calc(100% - 12.5%);
   }
   @media (max-width: 950px) {

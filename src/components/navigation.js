@@ -22,7 +22,6 @@ const Header = styled("header")`
     right: 0;
     height: ${vars.header_height};
     transform: translate3d(0, 0, 0);
-    border-bottom: 1px solid ${vars.white};
   }
 
   .navigation-sidebar {
@@ -51,22 +50,7 @@ const Header = styled("header")`
       }
     }
   }
-  .circle {
-    background-color: #fff;
-    margin: 0 auto;
-    height: 45px;
-    width: 45px;
-    border-radius: 50%;
-    display: block;
-    opacity: 0;
-    transform: translate3d(0, -10px, 0);
-    backface-visibility: hidden;
-    will-change: transform;
-    transition: transform 0.3s ease;
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
+
   .menu-trigger {
     font-weight: 700;
     font-size: 18px;
@@ -91,6 +75,7 @@ const Header = styled("header")`
       position: static;
       width: auto;
       letter-spacing: 2px;
+      opacity: 1;
     }
   }
 `;
@@ -100,7 +85,16 @@ const NavigationInner = styled("div")`
   display: flex;
   align-items: center;
   @media (max-width: 950px) {
-    display: none;
+    display: flex;
+    background-color: ${vars.black};
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: translate3d(-100%, 0, 0);
   }
   .navigation-inner-line {
     width: 10.33%;
@@ -109,6 +103,12 @@ const NavigationInner = styled("div")`
     height: 260px;
     position: relative;
     overflow: hidden;
+    @media (max-width: 950px) {
+      height: 28%;
+      margin: 0;
+      width: 22%;
+      background-color: ${vars.black};
+    }
     & > div {
       position: absolute;
       top: 0;
@@ -118,10 +118,17 @@ const NavigationInner = styled("div")`
       height: 100%;
       width: 1px;
       transform: translate3d(0, 100%, 0);
+      @media (max-width: 950px) {
+        transform: translate3d(0, 101%, 0);
+      }
     }
   }
 
   nav {
+    @media (max-width: 950px) {
+      width: 100%;
+      padding-left: 40px;
+    }
     div {
       overflow: hidden;
       margin-bottom: 30px;
@@ -132,6 +139,10 @@ const NavigationInner = styled("div")`
     a {
       font-size: 64px;
       display: block;
+      @media (max-width: 950px) {
+        font-size: 32px;
+        line-height: 42px;
+      }
     }
   }
 `;
@@ -139,7 +150,8 @@ const NavigationInner = styled("div")`
 class Navigation extends Component {
   constructor() {
     super();
-    this.anim_header = null;
+    this.anim_header_desktop = null;
+    this.anim_innerNavigation_mobile = null;
     this.state = {
       isNavigationOpen: false,
       header_hide_amount: null,
@@ -211,20 +223,31 @@ class Navigation extends Component {
       "#navigationInnerLine",
       0.8,
       {
-        transform: "translate3d(0,100%,0)"
+        transform: "translate3d(0,101%,0)"
       },
       {
         transform: "translate3d(0,0,0)",
         ease: Expo.easeInOut
       }
     );
-    this.anim_header = new TweenMax.fromTo(
-      "#header",
-      1.3,
-      { transform: `translate3d(calc(-100% + 120px), 0, 0)` },
-      { transform: "translate3d(0,0,0)", ease: Expo.easeInOut }
-    );
-    this.navigationAnimation.add(this.anim_header);
+    // Distinction between desktop and mobile animation
+    if (document.querySelector("body").classList.contains("mobile-device")) {
+      this.anim_innerNavigation_mobile = new TweenMax.fromTo(
+        ".navigation-inner",
+        1.3,
+        { transform: `translate3d(-100%, 0, 0)` },
+        { transform: "translate3d(0,0,0)", ease: Expo.easeInOut }
+      );
+      this.navigationAnimation.add(this.anim_innerNavigation_mobile);
+    } else {
+      this.anim_header_desktop = new TweenMax.fromTo(
+        "#header",
+        1.3,
+        { transform: `translate3d(calc(-100% + 120px), 0, 0)` },
+        { transform: "translate3d(0,0,0)", ease: Expo.easeInOut }
+      );
+      this.navigationAnimation.add(this.anim_header_desktop);
+    }
     this.navigationAnimation.add([anim_links, anim_line], "sequence");
   }
 
@@ -242,10 +265,12 @@ class Navigation extends Component {
 
   componentDidMount() {
     this.handleDeviceDetect();
-    if (this.state.isMobileDevice === false) {
-      this.introAnimation();
-      this.initiateNavigationAnimation();
-      this.resize();
+    this.initiateNavigationAnimation();
+    if (!document.querySelector("body").classList.contains("mobile-device")) {
+      window.setTimeout(() => {
+        this.introAnimation();
+        this.resize();
+      }, 100);
     }
   }
 
@@ -258,6 +283,7 @@ class Navigation extends Component {
 
   handleDeviceDetect() {
     if (this.isMobileDevice() === true) {
+      document.querySelector("body").classList.add("mobile-device");
       this.setState({ isMobileDevice: true });
     }
   }
