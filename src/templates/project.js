@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import styled from "@emotion/styled";
 import { vars } from "../utils/emotionVars";
