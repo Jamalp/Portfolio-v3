@@ -67,6 +67,14 @@ const Header = styled("header")`
     display: flex;
     align-items: center;
     justify-content: center;
+    @media (max-width: 950px) {
+      transform: translate3d(0, 0, 0) rotate(0) !important;
+      position: static;
+      width: auto;
+      letter-spacing: 2px;
+      opacity: 1;
+      height: 100%;
+    }
     & > div {
       height: 22px;
       overflow: hidden;
@@ -77,14 +85,6 @@ const Header = styled("header")`
           transform: rotate(0deg);
         }
       }
-    }
-    @media (max-width: 950px) {
-      transform: translate3d(0, 0, 0) rotate(0) !important;
-      height: auto;
-      position: static;
-      width: auto;
-      letter-spacing: 2px;
-      opacity: 1;
     }
   }
 `;
