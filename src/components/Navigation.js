@@ -46,8 +46,6 @@ const Header = styled("header")`
       opacity: 0;
       background-color: #fff;
       position: absolute;
-      @media (max-width: 950px) {
-      }
     }
   }
 
@@ -69,6 +67,17 @@ const Header = styled("header")`
     display: flex;
     align-items: center;
     justify-content: center;
+    & > div {
+      height: 22px;
+      overflow: hidden;
+      div:last-of-type {
+        transform: rotate(180deg);
+        display: block;
+        @media (max-width: 950px) {
+          transform: rotate(0deg);
+        }
+      }
+    }
     @media (max-width: 950px) {
       transform: translate3d(0, 0, 0) rotate(0) !important;
       height: auto;
@@ -104,7 +113,7 @@ const NavigationInner = styled("div")`
     position: relative;
     overflow: hidden;
     @media (max-width: 950px) {
-      height: 28%;
+      height: 160px;
       margin: 0;
       width: 22%;
       background-color: ${vars.black};
@@ -230,6 +239,12 @@ class Navigation extends Component {
         ease: Expo.easeInOut
       }
     );
+    const anim_trigger = new TweenMax.fromTo(
+      ".menu-trigger-text",
+      1.3,
+      { transform: "translate3d(0,0,0)" },
+      { transform: "translate3d(0,-22px,0)", ease: Expo.easeInOut }
+    );
     // Distinction between desktop and mobile animation
     if (
       document.querySelector("body").classList.contains("mobile-device") &&
@@ -241,7 +256,10 @@ class Navigation extends Component {
         { transform: `translate3d(-100%, 0, 0)` },
         { transform: "translate3d(0,0,0)", ease: Expo.easeInOut }
       );
-      this.navigationAnimation.add(this.anim_innerNavigation_mobile);
+      this.navigationAnimation.add([
+        anim_trigger,
+        this.anim_innerNavigation_mobile
+      ]);
     } else {
       this.anim_header_desktop = new TweenMax.fromTo(
         "#header",
@@ -249,7 +267,7 @@ class Navigation extends Component {
         { transform: `translate3d(calc(-100% + 120px), 0, 0)` },
         { transform: "translate3d(0,0,0)", ease: Expo.easeInOut }
       );
-      this.navigationAnimation.add(this.anim_header_desktop);
+      this.navigationAnimation.add([this.anim_header_desktop, anim_trigger]);
     }
     this.navigationAnimation.add([anim_links, anim_line], "sequence");
   }
@@ -271,8 +289,6 @@ class Navigation extends Component {
     if (window.innerWidth >= 1024) {
       this.introAnimation();
       this.resize();
-    } else {
-      console.log(276);
     }
   }
 
@@ -331,8 +347,12 @@ class Navigation extends Component {
           <div id="navigation_line" />
           <Circle data={{ isMobileDevice: this.state.isMobileDevice }} />
           <div className="menu-trigger" onClick={this.toggleMenu}>
-            <span className="menu-closed">Menu</span>
-            {/* <span className="menu-open">Close</span> */}
+            <div>
+              <div className="menu-trigger-text">
+                <div>Menu</div>
+                <div>Close</div>
+              </div>
+            </div>
           </div>
         </div>
       </Header>
