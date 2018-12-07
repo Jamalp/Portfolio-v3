@@ -90,7 +90,7 @@ const FooterEl = styled("footer")`
         position: absolute;
         left: 0;
         right: 0;
-        bottom: 10px;
+        bottom: 5px;
         height: 1px;
         width: 100%;
         background-color: #fff;
@@ -125,6 +125,10 @@ const FooterEl = styled("footer")`
       font-size: 24px;
       white-space: nowrap;
       font-weight: 700;
+      &::before,
+      &:after {
+        bottom: 2px;
+      }
     }
   }
 `;

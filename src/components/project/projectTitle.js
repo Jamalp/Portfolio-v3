@@ -19,7 +19,6 @@ const Title = styled("div")`
     text-align: left;
     position: absolute;
     @media (max-width: 950px) {
-      position: relative;
       padding-left: ${vars.mobile_margin_sides};
       font-size: ${vars.f_title_mobile};
     }
@@ -34,7 +33,7 @@ const Title = styled("div")`
       &:last-child {
         transform: translate3d(60px, 0, 0);
         @media (max-width: 950px) {
-          transform: translate3d(0, 0, 0);
+          transform: translate3d(20px, 0, 0);
         }
       }
       @media (max-width: 950px) {

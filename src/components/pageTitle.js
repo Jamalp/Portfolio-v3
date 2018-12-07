@@ -12,6 +12,7 @@ const Title = styled("div")`
     width: 100%;
     padding-left: 0;
     padding-top: 98px;
+    padding-bottom: 32px;
   }
 
   h1 {
@@ -31,7 +32,6 @@ const Title = styled("div")`
       font-weight: 700;
       font-size: 72px;
       @media (max-width: 950px) {
-        text-align: left;
         font-size: ${vars.f_title_mobile};
       }
     }

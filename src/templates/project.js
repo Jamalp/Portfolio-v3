@@ -38,7 +38,7 @@ const HeroImage = styled("div")`
 
   @media (max-width: 950px) {
     width: 100%;
-    margin: 0 0 ${vars.mobile_margin_down};
+    margin: 46px 0 ${vars.mobile_margin_down};
     height: 40vh;
   }
 
