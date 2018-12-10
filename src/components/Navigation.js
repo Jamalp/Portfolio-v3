@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import { vars } from "../utils/emotionVars";
 import Circle from "./Circle";
 import { TweenMax, Expo, TimelineLite } from "gsap";
+import { debounce } from "lodash";
 
 const Header = styled("header")`
   position: fixed;
@@ -159,12 +160,13 @@ const NavigationInner = styled("div")`
 class Navigation extends Component {
   constructor() {
     super();
-    this.anim_header_desktop = null;
-    this.anim_innerNavigation_mobile = null;
+    // this.anim_header_desktop = null;
+    // this.anim_innerNavigation_mobile = null;
     this.state = {
       isNavigationOpen: false,
       header_hide_amount: null,
-      isMobileDevice: false
+      isMobileDevice: false,
+      headerState: null
     };
     this.navigationAnimation = new TimelineLite({
       paused: true,
@@ -172,21 +174,28 @@ class Navigation extends Component {
         document.getElementById("header").removeAttribute("style");
       }
     });
-
+    this.handleDeviceDetect = this.handleDeviceDetect.bind(this);
+    this.escapeKey = this.escapeKey.bind(this);
     this.link_wrapper = null;
     this.links = null;
   }
 
-  resize() {
-    window.addEventListener(
-      "resize",
-      () => {
-        this.setState({
-          header_hide_amount: -window.innerWidth + 120
-        });
-      },
-      false
-    );
+  componentDidMount() {
+    this.handleDeviceDetect();
+    this.initiateNavigationAnimation();
+    window.addEventListener("resize", this.handleDeviceDetect, false);
+    document.addEventListener("keydown", this.escapeKey, false);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", null);
+    document.removeEventListener("keydown", this.escapeKey, false);
+  }
+
+  componentDidUpdate() {
+    if (window.innerWidth >= 1024) {
+      this.introAnimation();
+    }
   }
 
   getSlug(url) {
@@ -195,9 +204,42 @@ class Navigation extends Component {
   }
 
   toggleMenu = () => {
-    this.setState({ isNavigationOpen: !this.state.isNavigationOpen });
     this.handleMenu();
+    this.setState({ isNavigationOpen: !this.state.isNavigationOpen });
   };
+
+  handleMenu() {
+    if (this.state.isNavigationOpen === true) {
+      this.navigationAnimation.reverse(-0.5);
+    } else if (this.state.isNavigationOpen === false) {
+      this.navigationAnimation.play();
+    }
+  }
+
+  escapeKey(event) {
+    if (this.state.isNavigationOpen === true) {
+      if (event.keyCode === 27) {
+        this.toggleMenu();
+      }
+    }
+  }
+
+  isMobileDevice() {
+    return (
+      typeof window.orientation !== "undefined" ||
+      navigator.userAgent.indexOf("IEMobile") !== -1
+    );
+  }
+
+  handleDeviceDetect() {
+    if (this.isMobileDevice() === true || window.innerWidth <= 950) {
+      document.querySelector("body").classList.add("mobile-device");
+      this.setState({ isMobileDevice: true, headerState: "HeaderMobile" });
+    } else {
+      document.querySelector("body").classList.remove("mobile-device");
+      this.setState({ isMobileDevice: false, headerState: "HeaderDesktop" });
+    }
+  }
 
   introAnimation() {
     TweenMax.to("#navigation_line", 1.4, {
@@ -218,6 +260,8 @@ class Navigation extends Component {
   }
 
   initiateNavigationAnimation() {
+    let anim_innerNavigation_mobile;
+    let anim_header_desktop;
     this.link_wrapper = [].slice.call(
       document.querySelectorAll(".navigation-link-wrapper")
     );
@@ -250,67 +294,28 @@ class Navigation extends Component {
       document.querySelector("body").classList.contains("mobile-device") &&
       window.innerWidth < 1024
     ) {
-      this.anim_innerNavigation_mobile = new TweenMax.fromTo(
+      anim_innerNavigation_mobile = new TweenMax.fromTo(
         ".navigation-inner",
         1.3,
         { transform: `translate3d(-100%, 0, 0)` },
         { transform: "translate3d(0,0,0)", ease: Expo.easeInOut }
       );
-      this.navigationAnimation.add([
-        anim_trigger,
-        this.anim_innerNavigation_mobile
-      ]);
+      this.navigationAnimation.add([anim_trigger, anim_innerNavigation_mobile]);
     } else {
-      this.anim_header_desktop = new TweenMax.fromTo(
+      anim_header_desktop = new TweenMax.fromTo(
         "#header",
         1.3,
         { transform: `translate3d(calc(-100% + 120px), 0, 0)` },
         { transform: "translate3d(0,0,0)", ease: Expo.easeInOut }
       );
-      this.navigationAnimation.add([this.anim_header_desktop, anim_trigger]);
+      this.navigationAnimation.add([anim_header_desktop, anim_trigger]);
     }
     this.navigationAnimation.add([anim_links, anim_line], "sequence");
   }
 
-  handleMenu() {
-    if (this.state.isNavigationOpen === true) {
-      this.navigationAnimation.reverse(-0.5);
-    } else if (this.state.isNavigationOpen === false) {
-      this.navigationAnimation.play();
-    }
-  }
-
-  componentDidMount() {
-    this.handleDeviceDetect();
-    this.initiateNavigationAnimation();
-  }
-
-  componentDidUpdate() {
-    if (window.innerWidth >= 1024) {
-      this.introAnimation();
-      this.resize();
-    }
-  }
-
-  isMobileDevice() {
-    return (
-      typeof window.orientation !== "undefined" ||
-      navigator.userAgent.indexOf("IEMobile") !== -1
-    );
-  }
-
-  handleDeviceDetect() {
-    if (this.isMobileDevice() === true) {
-      document.querySelector("body").classList.add("mobile-device");
-      this.setState({ isMobileDevice: true });
-    } else {
-      this.setState({ isMobileDevice: false });
-    }
-  }
-
   render() {
     return (
-      <Header id="header" key="Header">
+      <Header id="header" key="HeaderDesktop">
         <NavigationInner className="navigation-inner">
           <div className="navigation-inner-line">
             <div id="navigationInnerLine" />

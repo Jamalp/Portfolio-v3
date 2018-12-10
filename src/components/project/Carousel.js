@@ -19,6 +19,31 @@ const CarouselElWrapper = styled("div")`
     display: block;
   }
 `;
+const CarouselControls = styled("div")`
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  @media (max-width: 950px) {
+    justify-content: flex-end;
+  }
+
+  .carousel-controls {
+    width: 30px;
+    height: 16px;
+    cursor: pointer;
+    display: block;
+    &.prev {
+      background: url("/images/prev.png") center center no-repeat;
+      background-size: contain;
+      margin-right: 30px;
+    }
+
+    &.next {
+      background: url("/images/next.png") center center no-repeat;
+      background-size: contain;
+    }
+  }
+`;
 const CarouselEl = styled("div")`
   width: 77.25%;
   position: relative;
@@ -36,30 +61,7 @@ const CarouselEl = styled("div")`
   @media (max-width: 767px) {
     height: 180px;
   }
-  .carousel-controls {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 50%;
-    height: 100%;
-    z-index: 1;
-    @media (max-width: 950px) {
-      display: none;
-    }
-    &.prev {
-      left: 0;
-      &:hover {
-        cursor: url("/static/images/prev.png"), auto;
-      }
-    }
 
-    &.next {
-      right: 0;
-      &:hover {
-        cursor: url("/static/images/next.png"), auto;
-      }
-    }
-  }
   .carousel {
     width: 100%;
     height: 100%;
@@ -232,17 +234,19 @@ class Carousel extends Component {
       return (
         <CarouselElWrapper>
           <CarouselEl>
-            {/* <div
-              className="carousel-controls prev"
-              onClick={this.goBackward.bind(this)}
-            />
-            <div
-              className="carousel-controls next"
-              onClick={this.goForward.bind(this)}
-            /> */}
             <div className="carousel">{galleryItems}</div>
           </CarouselEl>
           <CarouselSidebar>
+            <CarouselControls>
+              <div
+                className="carousel-controls prev"
+                onClick={this.goBackward.bind(this)}
+              />
+              <div
+                className="carousel-controls next"
+                onClick={this.goForward.bind(this)}
+              />
+            </CarouselControls>
             <div dangerouslySetInnerHTML={{ __html: sidebarCopy }} />
           </CarouselSidebar>
         </CarouselElWrapper>

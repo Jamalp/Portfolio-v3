@@ -27,6 +27,7 @@
     "gatsby-transformer-remark": "^2.1.13",
     "gatsby-transformer-sharp": "^2.1.8",
     "gsap": "^2.0.2",
+    "lodash": "^4.17.11",
     "node-sass": "^4.10.0",
     "react": "^16.6.3",
     "react-div-100vh": "^0.3.2",

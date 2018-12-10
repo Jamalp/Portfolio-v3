@@ -5,7 +5,7 @@ require("dotenv").config({ path: `./.env.${env}` });
 
 module.exports = {
   siteMetadata: {
-    title: "Jamal Powell · Web Developer, creative & photographer.",
+    title: "Jamal Powell · Web Developer, Creative & Photographer.",
     siteUrl: `https://jamalpowell.com`,
     titleAlt: "Jamal Powell Portfolio", // This allows an alternative site title for SEO schema.
     publisher: "Jamal Powell", // Organization name used for SEO schema
