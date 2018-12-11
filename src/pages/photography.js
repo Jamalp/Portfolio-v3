@@ -8,9 +8,11 @@ const PhotoGallery = styled("section")`
   height: 100%;
   width: calc(100% - 120px);
   margin-left: auto;
+
   @media (max-width: 950px) {
     width: 100%;
   }
+
   .flickity-prev-next-button {
     top: 20px;
     -webkit-transform: none;
@@ -21,16 +23,17 @@ const PhotoGallery = styled("section")`
       top: auto;
       bottom: 20px;
     }
+
+    &.previous {
+      left: auto;
+      right: 60px;
+    }
+
+    &.next {
+      right: 20px;
+    }
   }
 
-  .flickity-prev-next-button.previous {
-    left: auto;
-    right: 60px;
-  }
-
-  .flickity-prev-next-button.next {
-    right: 20px;
-  }
   .carousel {
     height: 100%;
     width: 100%;

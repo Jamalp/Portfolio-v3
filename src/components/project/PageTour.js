@@ -40,7 +40,7 @@ const PageTourElement = styled("div")`
         height: 1px;
         width: 20px;
         background-color: #fff;
-        margin-top: 9px;
+        margin-top: 17px;
         @media (max-width: 950px) {
           margin-top: 12px;
           margin-right: 10px;

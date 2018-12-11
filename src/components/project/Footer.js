@@ -81,12 +81,13 @@ const FooterEl = styled("footer")`
     p {
       font-weight: 700;
       font-size: 64px;
-      line-height: 1;
+      line-height: 80px;
       letter-spacing: 1px;
       overflow: hidden;
       position: relative;
       @media (max-width: 950px) {
         font-size: 24px;
+        line-height: 32px;
       }
 
       &:after {
@@ -94,7 +95,7 @@ const FooterEl = styled("footer")`
         position: absolute;
         left: 0;
         right: 0;
-        bottom: 5px;
+        bottom: 14px;
         height: 1px;
         width: 100%;
         background-color: #fff;

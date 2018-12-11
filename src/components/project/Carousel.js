@@ -59,7 +59,7 @@ const CarouselEl = styled("div")`
     margin-bottom: 20px;
   }
   @media (max-width: 767px) {
-    height: 180px;
+    height: 190px;
   }
 
   .carousel {
