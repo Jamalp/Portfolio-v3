@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { graphql } from "gatsby";
 import styled from "@emotion/styled";
 import Div100vh from "react-div-100vh";
+import "../styles/lib/flickity.scss";
 
 const PhotoGallery = styled("section")`
   height: 100%;
@@ -90,6 +91,7 @@ class PhotographyPage extends Component {
     this.element.classList.remove("is-hidden");
     window.setTimeout(() => {
       this.initiateFlickity();
+      this.element.focus();
       this.events();
     }, 900);
   }
