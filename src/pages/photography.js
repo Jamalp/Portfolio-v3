@@ -87,6 +87,7 @@ class PhotographyPage extends Component {
       }
     };
     this.refreshCarousel = this.refreshCarousel.bind(this);
+    this.stopRightClick = this.stopRightClick.bind(this);
   }
 
   componentDidMount() {
@@ -102,10 +103,16 @@ class PhotographyPage extends Component {
 
   componentWillUnmount() {
     window.removeEventListener("orientationchange", this.refreshCarousel);
+    document.removeEventListener("contextmenu", this.stopRightClick);
   }
 
   events() {
     window.addEventListener("orientationchange", this.refreshCarousel);
+    document.addEventListener("contextmenu", this.stopRightClick);
+  }
+
+  stopRightClick(event) {
+    event.preventDefault();
   }
 
   refreshCarousel() {
@@ -114,13 +121,6 @@ class PhotographyPage extends Component {
 
   initiateFlickity() {
     this.carousel = new this.Flickity(this.element, this.state.options);
-  }
-  goForward() {
-    this.carousel.next(true, false);
-  }
-
-  goBackward() {
-    this.carousel.previous(true, false);
   }
 
   render() {
