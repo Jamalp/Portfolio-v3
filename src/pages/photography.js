@@ -17,6 +17,10 @@ const PhotoGallery = styled("section")`
     transform: none;
     width: 30px;
     height: 30px;
+    @media (max-width: 950px) {
+      top: auto;
+      bottom: 20px;
+    }
   }
 
   .flickity-prev-next-button.previous {
