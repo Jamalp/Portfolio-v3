@@ -33,7 +33,7 @@ const InitialsEl = styled("h4")`
       font-size: 18px;
     }
   }
-  body:not(.touch-device) & {
+  body:not(.mobile-device) & {
     &:hover {
       .i-contact {
         width: 58px;

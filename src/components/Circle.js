@@ -18,7 +18,7 @@ const CircleEl = styled("div")`
     will-change: transform;
     transition: transform 0.3s ease, background-color 0.3s ease;
     border: 1px solid #fff;
-    body:not(.touch-device) & {
+    body:not(.mobile-device) & {
       &:hover {
         background-color: ${vars.black};
         transform: scale(1.2) !important;

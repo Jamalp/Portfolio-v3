@@ -32,7 +32,7 @@ const FooterEl = styled("footer")`
       height: 120px;
     }
     &:hover,
-    body.touch-device & {
+    body.mobile-device & {
       .overlay {
         background-color: rgba(0, 0, 0, 0.8);
       }
@@ -102,7 +102,7 @@ const FooterEl = styled("footer")`
         transform: translate3d(-100%, 0, 0);
         transition: transform 0.5s cubic-bezier(1, 0.01, 0.7, 0.93);
         transition-delay: 0.2s;
-        body.touch-device & {
+        body.mobile-device & {
           display: none;
         }
         @media (max-width: 950px) {

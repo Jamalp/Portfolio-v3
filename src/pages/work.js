@@ -71,7 +71,8 @@ const ProjectEl = styled("div")`
     position: relative;
     display: block;
 
-    body:not(.touch-device) & {
+    body:not(.touch-device) &,
+    body:not(.mobile-device) & {
       &:hover {
         .project-hover {
           pointer-events: auto;
