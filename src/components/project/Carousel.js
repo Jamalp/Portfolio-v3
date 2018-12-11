@@ -148,6 +148,7 @@ class Carousel extends Component {
         }
       }
     };
+    this.refreshCarousel = this.refreshCarousel.bind(this);
   }
   componentDidMount() {
     if (this.props.data.gallery) {
@@ -155,15 +156,17 @@ class Carousel extends Component {
       this.Flickity = require("flickity");
       this.initiateFlickity();
       this.parallax();
+      this.events();
     }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("orientationchange", this.refreshCarousel);
   }
 
   events() {
     // not being fired
-    window.addEventListener(
-      "orientationchange",
-      this.refreshCarousel.bind(this)
-    );
+    window.addEventListener("orientationchange", this.refreshCarousel);
   }
 
   refreshCarousel() {

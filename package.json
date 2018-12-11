@@ -20,7 +20,7 @@
     "gatsby-plugin-offline": "^2.0.17",
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-plugin-sass": "^2.0.5",
-    "gatsby-plugin-sharp": "^2.0.14",
+    "gatsby-plugin-sharp": "^2.0.15",
     "gatsby-plugin-sitemap": "^2.0.2",
     "gatsby-source-contentful": "^2.0.16",
     "gatsby-source-filesystem": "^2.0.8",
@@ -48,6 +48,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "gatsby-source-s3": "0.0.0",
     "prettier": "^1.15.2"
   },
   "repository": {

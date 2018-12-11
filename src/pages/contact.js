@@ -89,7 +89,7 @@ const ContactPage = () => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            Photography
+            Photography Blog
           </a>
           <a
             className="link--primary"

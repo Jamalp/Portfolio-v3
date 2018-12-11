@@ -110,11 +110,11 @@ const NavigationInner = styled("div")`
     width: 10.33%;
     margin-left: 120px;
     margin-right: 10.33%;
-    height: 260px;
+    height: 315px;
     position: relative;
     overflow: hidden;
     @media (max-width: 950px) {
-      height: 160px;
+      height: 210px;
       margin: 0;
       width: 22%;
       background-color: ${vars.black};
@@ -160,8 +160,6 @@ const NavigationInner = styled("div")`
 class Navigation extends Component {
   constructor() {
     super();
-    // this.anim_header_desktop = null;
-    // this.anim_innerNavigation_mobile = null;
     this.state = {
       isNavigationOpen: false,
       header_hide_amount: null,
@@ -341,11 +339,11 @@ class Navigation extends Component {
                 Contact
               </Link>
             </div>
-            {/* <div className="navigation-link-wrapper">
+            <div className="navigation-link-wrapper">
               <Link onClick={this.toggleMenu} to="/photography">
                 Photography
               </Link>
-            </div> */}
+            </div>
           </nav>
         </NavigationInner>
         <div className="navigation-sidebar">
