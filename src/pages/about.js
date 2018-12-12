@@ -30,7 +30,7 @@ const AboutClients = styled("aside")`
   padding-bottom: 110px;
   @media (max-width: 950px) {
     width: 100%;
-    padding: 0 ${vars.mobile_margin_sides} 20px;
+    padding: 0 ${vars.mobile_margin_sides} 40px;
     margin: 0 auto;
   }
   p,
