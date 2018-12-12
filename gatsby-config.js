@@ -74,6 +74,16 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-60064927-1",
+        head: true,
+        anonymize: false,
+        respectDNT: true,
+        exclude: ["/preview/**"]
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: "Jamal Powells Portfolio",
