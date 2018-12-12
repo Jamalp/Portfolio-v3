@@ -165,7 +165,6 @@ class Carousel extends Component {
   }
 
   events() {
-    // not being fired
     window.addEventListener("orientationchange", this.refreshCarousel);
   }
 

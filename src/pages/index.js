@@ -119,14 +119,14 @@ class HomePage extends Component {
           <Introduction id="introduction_copy">
             <div>
               <p>
-                Hey, I'm a Web Developer & Creative Technologist based in
-                Portland, Oregon.
+                Hey, I'm Jamal. A web developer, creative technologist &
+                photographer with over seven years of experience working in
+                digital & advertising agencies.
               </p>
               <p>
                 {" "}
                 I've had the privilege to work with companies and organizations
-                such as The New York Times, Umbro, Tracksmith, Master & Dynamic,
-                R+Co & RED.
+                such as The New York Times, Umbro, R+Co, RED & The White House.
               </p>
             </div>
             <div className="cta-wrapper">
