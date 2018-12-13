@@ -85,16 +85,16 @@ const AboutPage = () => (
         responsive and interactive.
       </p>
       <p>
-        As an experienced team leader he has worked with multi-disciplinary
-        teams in New York, LA and Portland to deliver world class digital
-        content on multiple platforms.
+        As an experienced team leader, he has worked with multi-disciplinary
+        teams in New York, Los Angeles and Portland to deliver world-class
+        digital content on multiple platforms.
       </p>
     </AboutContent>
     <AboutLine>
       <span />
     </AboutLine>
     <AboutClients>
-      <p>Clients & brands I've had the opportunity to worked with:</p>
+      <p>Clients & brands I've had the opportunity to work with:</p>
       <ul>
         <li>Apple, </li>
         <li>The New York Times, </li>

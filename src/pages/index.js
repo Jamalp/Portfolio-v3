@@ -125,8 +125,9 @@ class HomePage extends Component {
               </p>
               <p>
                 {" "}
-                I've had the privilege to work with companies and organizations
-                such as The New York Times, Umbro, R+Co, RED & The White House.
+                I've had the privilege of working with brands and organizations
+                such as, The New York Times, Umbro, R+Co, Becca RED & The White
+                House.
               </p>
             </div>
             <div className="cta-wrapper">

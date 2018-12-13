@@ -71,8 +71,8 @@ const ContactPage = () => (
     <PageTitle title="Contact" />
     <ContactBlurb>
       <p>
-        For general inquiries or if you'd like to work together, please email me
-        at{" "}
+        For general inquiries, or if you'd like to work together, please email
+        me at{" "}
         <a
           className="link--primary"
           href="mailto:jamalkpowell@gmail.com?Subject=Hey%20Jamal"
