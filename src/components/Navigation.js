@@ -191,7 +191,7 @@ class Navigation extends Component {
   }
 
   componentDidUpdate() {
-    if (window.innerWidth >= 1024) {
+    if (window.innerWidth >= 951) {
       this.introAnimation();
     }
   }
